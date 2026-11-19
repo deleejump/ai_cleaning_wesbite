@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clear House | A Fresh Start for Your Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #a9d7bd;
+      --dark-green: #245c46;
+      --cream: #fffdf6;
+      --yellow: #ffe18a;
+      --pink: #f7c9c2;
+      --dark: #263c32;
+      --muted: #738078;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 88%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      height: 85px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 6%;
+      border-bottom: 1px solid #edf0e9;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+    }
+
+    .logo span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 25px;
+      color: var(--dark-green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #6ba786;
+    }
+
+    .nav-button, .button {
+      background: var(--dark-green);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      display: inline-block;
+      transition: .25s;
+    }
+
+    .nav-button:hover, .button:hover {
+      background: #397a5e;
+      transform: translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 85px 0 90px;
+      background: #e9f3e9;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .eyebrow {
+      color: var(--dark-green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 6vw, 76px);
+      line-height: 1.05;
+      color: var(--dark-green);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #e5a94e;
+    }
+
+    .hero p {
+      color: #64756b;
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 470px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .text-link {
+      font-weight: 800;
+      color: var(--dark-green);
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      border-radius: 35px;
+    }
+
+    .floating-note {
+      position: absolute;
+      bottom: 25px;
+      left: -25px;
+      background: white;
+      border-radius: 20px;
+      padding: 17px 23px;
+      font-weight: 800;
+      box-shadow: 0 10px 35px #00000012;
+      transform: rotate(-3deg);
+    }
+
+    .floating-note span {
+      color: #e3a33f;
+    }
+
+    /* TRUST BAR */
+
+    .trust {
+      padding: 35px 0;
+      text-align: center;
+      border-bottom: 1px solid #edf0e9;
+    }
+
+    .trust p {
+      font-weight: 800;
+      color: var(--dark-green);
+      font-size: 15px;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* SERVICES */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(35px, 4vw, 49px);
+      color: var(--dark-green);
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 25px;
+      overflow: hidden;
+      transition: .3s;
+      border: 1px solid #eff1e9;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px #254d3515;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-info {
+      padding: 27px;
+    }
+
+    .service-info h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+      color: var(--dark-green);
+    }
+
+    .service-info p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 70px;
+    }
+
+    .price {
+      margin-top: 20px;
+      font-weight: 900;
+      color: #d89a3d;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #f9eee6;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+
+    .about-text h2 {
+      font-size: clamp(35px, 4vw, 48px);
+      color: var(--dark-green);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.9;
+      color: #69756d;
+      margin-bottom: 20px;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 25px 0 30px;
+    }
+
+    .check-list li {
+      margin: 14px 0;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    .check-list li::before {
+      content: "✿ ";
+      color: #d9a14d;
+      font-size: 19px;
+    }
+
+    /* WHY US */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 30px 25px;
+      border-radius: 25px;
+      background: #eff5ec;
+    }
+
+    .feature:nth-child(2) {
+      background: #fff1dc;
+    }
+
+    .feature:nth-child(3) {
+      background: #f9e9e5;
+    }
+
+    .feature-icon {
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      font-size: 21px;
+      color: var(--dark-green);
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials {
+      background: #e9f3e9;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .review {
+      background: white;
+      border-radius: 25px;
+      padding: 30px;
+    }
+
+    .stars {
+      color: #e5ad45;
+      font-size: 20px;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .review p {
+      color: #68766d;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .review h4 {
+      color: var(--dark-green);
+      font-size: 15px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .contact h2 {
+      font-size: clamp(38px, 5vw, 55px);
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      color: #d4e5d9;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .contact .button {
+      background: var(--yellow);
+      color: var(--dark-green);
+    }
+
+    .contact .button:hover {
+      background: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #193e30;
+      color: white;
+      padding: 45px 6%;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .footer-logo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    footer p, footer a {
+      color: #c5d8cb;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero-content, .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image img {
+        height: 350px;
+      }
+
+      .services-grid, .features, .reviews {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .floating-note {
+        left: 10px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      nav {
+        padding: 0 5%;
+        height: 75px;
+      }
+
+      .logo span {
+        font-size: 21px;
+      }
+
+      .logo img {
+        width: 43px;
+        height: 43px;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .nav-button {
+        padding: 11px 16px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 65px 0;
+      }
+
+      .hero-content {
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: 49px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .services-grid, .features, .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 320px;
+      }
+
+      .trust-items {
+        gap: 18px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="logo">
+      <img src="logo.png" alt="Clear House logo">
+      <span>Clear House</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact" class="nav-button">Get a Quote ✨</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div>
+        <div class="eyebrow">✿ A little cleaner, a lot happier</div>
+
+        <h1>
+          Come home to<br>
+          <span>happy & clean.</span>
+        </h1>
+
+        <p>
+          Life gets messy. That's okay! We'll take care of the cleaning
+          so you can spend more time doing the things you love.
+          Fresh spaces, happy faces, every time.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="button">Let's Get Cleaning →</a>
+          <a href="#services" class="text-link">Explore Services ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="hero-clean-home.jpg" alt="Beautiful clean and bright living room">
+        <div class="floating-note">
+          <span>✦</span> Clean home, happy heart!
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <div class="container">
+      <p>A CLEAN YOU CAN FEEL GOOD ABOUT</p>
+      <div class="trust-items">
+        <span>♡ Friendly Service</span>
+        <span>✿ Detail Obsessed</span>
+        <span>☀ Stress-Free Cleaning</span>
+        <span>✓ Reliable Team</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">WHAT WE DO BEST</div>
+        <h2>A little sparkle goes a long way.</h2>
+        <p>Whatever your space needs, we've got you covered.
+          Pick your perfect clean and let us do the rest!</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <img src="regular-cleaning.jpg" alt="Fresh clean living room">
+          <div class="service-info">
+            <h3>Regular Cleaning</h3>
+            <p>Your weekly or biweekly refresh. We'll keep everything
+              tidy, fresh, and feeling like new.</p>
+            <div class="price">THE EVERYDAY REFRESH ✿</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="deep-cleaning.jpg" alt="Spotless kitchen">
+          <div class="service-info">
+            <h3>Deep Cleaning</h3>
+            <p>For those spaces that need a little extra love.
+              We get into the details and make everything shine.</p>
+            <div class="price">THE EXTRA SPARKLE ✨</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <img src="move-cleaning.jpg" alt="Beautiful empty clean home">
+          <div class="service-info">
+            <h3>Move In / Out</h3>
+            <p>Starting fresh or saying goodbye? We'll leave
+              your space looking its absolute best.</p>
+            <div class="price">A FRESH NEW START ♡</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-content">
+
+      <div class="about-image">
+        <img src="cleaning-team.jpg" alt="Friendly professional cleaning team">
+      </div>
+
+      <div class="about-text">
+        <div class="eyebrow">A LITTLE ABOUT US</div>
+
+        <h2>We're here to make life a little lighter.</h2>
+
+        <p>
+          At Clear House, we believe coming home should feel like
+          taking a deep breath. A clean space can make all the
+          difference, and we're here to make that happen.
+        </p>
+
+        <p>
+          We're all about friendly faces, thoughtful details,
+          and making your home feel wonderful. No stress,
+          no judgment, just a really good clean.
+        </p>
+
+        <ul class="check-list">
+          <li>Friendly, caring service</li>
+          <li>Attention to the little details</li>
+          <li>Cleaning that fits your schedule</li>
+          <li>We treat your home with care</li>
+        </ul>
+
+        <a href="#contact" class="button">Meet Your Cleaning Team →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section>
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">THE CLEAR HOUSE DIFFERENCE</div>
+        <h2>Good people. Great cleans.</h2>
+        <p>We make the whole experience easy, from the first hello
+          to that amazing just-cleaned feeling.</p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">🌼</div>
+          <h3>People First</h3>
+          <p>Friendly service, thoughtful care, and a team
+            that genuinely wants to help.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <h3>Details Matter</h3>
+          <p>We notice the little things because they make
+            a big difference.</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏡</div>
+          <h3>Your Happy Place</h3>
+          <p>Your home deserves care. We work hard to
+            make it feel fresh and welcoming.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="eyebrow">KIND WORDS</div>
+        <h2>Don't just take our word for it!</h2>
+        <p>Our favorite part of the job? Happy customers
+          and homes that sparkle.</p>
+      </div>
+
+      <div class="reviews">
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Coming home after a Clear House clean is the
+            BEST feeling. Everything looks amazing and
+            smells so fresh!"</p>
+          <h4>— Happy Customer</h4>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Such a friendly team! They paid attention
+            to every little detail. I couldn't be happier
+            with the results."</p>
+          <h4>— Happy Customer</h4>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>"Booking was easy, the service was wonderful,
+            and my house looks incredible. Definitely
+            recommending them!"</p>
+          <h4>— Happy Customer</h4>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <div class="eyebrow" style="color:#ffe18a;">
+        YOUR FRESH START IS WAITING
+      </div>
+
+      <h2>Ready for that just-cleaned feeling?</h2>
+
+      <p>
+        Let's make your home a happier place.<br>
+        Get in touch and let's find your perfect clean!
+      </p>
+
+      <a href="mailto:hello@clearhouse.com?subject=Cleaning%20Quote"
+         class="button">
+        Get Your Free Quote ✨
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+
+      <div>
+        <div class="footer-logo">✿ Clear House</div>
+        <p>A little cleaner, a lot happier.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <p>© 2026 Clear House. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
